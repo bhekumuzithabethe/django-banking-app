@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+body,
+button {
+  font-family: "Inter", sans-serif;
+}
+
+
+#navbar{
+    height: 80px;
+}
+#main-content{
+    margin-top: 10px;
+}
+
+@media (min-width:992px) {
+    body{
+        overflow: none;
+    }
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+    #offcanvasExample{
+        visibility: visible;
+        transform: none;
+        height: calc(100%-80px);
+        top: 80px;
+        width:270px
+
+    }
+
+    #main-content{
+        margin-top: 10px;
+        margin-left: 280px;
+    }
+}
