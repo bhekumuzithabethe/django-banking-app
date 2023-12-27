@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block page_title %}Client Home{% endblock page_title %}
+
+{% block title %}Client{% endblock title %}
+
+{% block page_url %}{% url 'client' %}{% endblock page_url %}
+
+{% block aside_body %}
+    {% include "client/sidebar.html" %}
+{% endblock aside_body %}
+
+
+
+{% block main_content %}
+
+{% block main_content_title %}
+    <h4><i class="fa-solid fa-house fa-lg"></i> Home</h4><hr>
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+        <h4 class="alert alert-danger m-4">{{message}}</h4>
+    {% else %}
+        <h4 class="alert alert-success m-4">{{message}}</h4>
+    {% endif %}
+  {% endfor %}
+{% endblock main_content_title %}
+
+    <div class="row my-4 mx-3 justify-content-center">
+        {% for account in accounts  %}
+            <a href="{% url "account" account.id %}" class="text-decoration-none">
+                <div class="col-10 m-0 p-0 ">
+                    <div class="card text-light bg-primary m-2">
+                    <div class="card-header">{{account.account_type}} Account</div>
+                    <div class="card-body">
+                        <p>{{account.account_number}}</p>
+                        <h4 class="card-title text-end">R{{account.balance}}</h4>
+                        <p class="card-text text-end">Available balance</p>
+                    </div>
+                    </div>
+                </div>
+
+
+            </a>
+            
+        {% endfor %}
+        
+    </div>
+
+{% endblock main_content %}

@@ -1,0 +1,38 @@
+
+<div class="offcanvas offcanvas-start bg-body-tertiary text-primary" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExample">
+    
+
+    <div class="offcanvas-body">
+      
+        <div class="row">
+            <div class="col">
+                <ul class="list-unstyled ">
+                    <li>
+                        <a href="{% url 'client' %}" class="nav-link m-3">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-house fa-lg"></i> Home</span> </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'deposit' %}" class="nav-link m-3">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-file-arrow-down fa-lg"></i> Deposit</span> </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'transfare'  %}" class="nav-link m-3">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-money-bill-transfer fa-lg"></i> Transfer</span> </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'pay'  %}" class="nav-link m-3">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-wallet fa-lg"></i> Pay</span> </a>
+                    </li>
+                    
+                    <li>
+                        <a href="{% url 'withdraw' %}" class="nav-link m-3">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-money-bill-transfer fa-lg"></i> Withdraw</span> </a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

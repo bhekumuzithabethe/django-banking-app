@@ -1,0 +1,65 @@
+
+<div class="offcanvas offcanvas-start bg-body-tertiary text-primary" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExample">
+    
+
+    <div class="offcanvas-body">
+      
+        <div class="row">
+
+            <div class="col">
+                <ul class="list-unstyled ">
+                   
+                   <li>
+                    <a href="{% url 'adminpage' %}" class="nav-link m-3 ">
+                        <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-house fa-lg"></i> Home</span> </a>
+                  </li>
+                  <br>
+                    
+
+                    <li class="nav-item">
+                        <a href="{% url 'add-consultant' %}" class="nav-link m-3 ">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-plus fa-lg"></i> New Consultant</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'manage-consultants' %}" class="nav-link m-3 ">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-list-check fa-lg"></i> Manage Consultants</span> </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'add-client' %}" class="nav-link m-3 ">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-plus fa-lg"></i> New Client</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'manage-clients' %}" class="nav-link m-3 ">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-list-check fa-lg"></i> Manage Clients</span> </a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a href="{% url 'add-account' %}" class="nav-link m-3 ">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-plus fa-lg"></i> New Account</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'manage-accounts' %}" class="nav-link m-3 ">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-list-check fa-lg"></i> Manage Accounts</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'add-card' %}" class="nav-link m-3 ">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-plus fa-lg"></i> New Card</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'manage-cards' %}" class="nav-link m-3 ">
+                            <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-list-check fa-lg"></i> Manage Cards</span> </a>
+                    </li>
+                    <br>
+                    <br>
+                    <li class="nav-item">
+                        <a href="{% url 'manage-users' %}" class="nav-link  m-3">
+                        <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-list-check fa-lg"></i> Manage User's</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

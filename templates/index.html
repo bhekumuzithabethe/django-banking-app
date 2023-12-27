@@ -1,0 +1,89 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thabethe Banking | {% block page_title %}{% endblock page_title %}</title>
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!--Bootstrap CSS-->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet" >
+    <link href="{% static "css/admin.css" %}" rel="stylesheet" >
+
+  </head>
+  <body class="bg-body-tertiary">
+    
+    {% block body %}
+    
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg bg-primary sticky-top" id="navbar">
+        <div class="container-fluid">
+          <!--Offcanvas toggler-->
+          <button class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse"
+            data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!--Navbar toggler-->
+          <button class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor04"
+            aria-controls="navbarColor04"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          
+
+
+          <div class="collapse navbar-collapse" id="navbarColor04">
+            <a href="{% block page_url %}{% endblock page_url %}" class="text-decoration-none p-2"><h3 class="m-3 text-light"><i class="fa-solid fa-building-columns fa-lg"></i> Thabethe Banking</h3></a>
+
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light me-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-regular fa-user fa-lg "></i></a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a href="{% url "update-user" user.id %}" class="m-1 p-2">Welcome, {{user.username}}.</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'dologout' %}"><i class="fa-solid fa-right-to-bracket fa-lg"></i> Logout</a>
+                </div>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+      <!--End Navbar-->
+
+      <!--Offcanvas-->
+      {% block aside_body %}{% endblock aside_body %}
+      
+      <!--Endoffcanvas-->
+
+      <div id="main-content">
+       
+        {% block main_content %}
+          <h4 class="m-3">{% block main_content_title %}{% endblock main_content_title %}</h4>
+          {% for message in messages %}
+          {% if message.tags == 'error' %}
+              <h4 class="alert alert-danger m-4">{{message}}</h4>
+          {% else %}
+              <h4 class="alert alert-success m-4">{{message}}</h4>
+          {% endif %}
+        {% endfor %}
+        {% endblock main_content %}
+      </div>
+    {% endblock body %}
+    <footer class="text-center fixed-bottom">
+      <span>Copyright&copy; 2023 - <script>document.write(new Date().getFullYear())</script> | All rights reserved, Thabethe Programming.</span>
+    </footer>
+    <!--Bootstrap JS-->
+    <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+  </body>
+</html>

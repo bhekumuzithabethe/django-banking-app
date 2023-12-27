@@ -1,0 +1,10 @@
+{% extends 'consultant/forms/form.html' %}
+
+{% block main_content_title %}<h4 class="m-4"><i class="fa-solid fa-plus fa-lg"></i> Add Client</h4><hr>{% endblock main_content_title %}
+
+{% block card_hearder %}Client Registration{% endblock card_hearder %}
+
+{% block form_action %}{% url 'add-client' %}{% endblock form_action %}
+
+{% block form_button %}Save{% endblock form_button %}
+{% block cancel_url %}{% url "consultant" %}{% endblock cancel_url %}
