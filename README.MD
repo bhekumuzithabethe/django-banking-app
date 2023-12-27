@@ -2,10 +2,12 @@
 
 ## Overview
 Thabethe banking is a banking project, whereby a consultant can create a clients,bank accounts, and client banking cards. 
-
+![Home Page](https://github.com/bhekumuzithabethe/django-banking-app/blob/main/static/img/consultant_home.png)
 Consultants can only be registerd or created by the bank manager, and the bank manager is able to do everything the bank consultant can do.
-
+![Home Page](https://github.com/bhekumuzithabethe/django-banking-app/blob/main/static/img/bank_manager_home.png)
 User's or clients can view their account transactions,account balance and account number. Clients can make withdrawalls using their card number and the account the client wants to withdraw money from. Transferes can only be made if a user has multiple bank accounts with us, if a client wishes to send money to a beneficiary they can make use of the pay tab to pay an account registered in our database. Clients are also able to make deposits given an account number they wish to deposit into.
+![Home Page](https://github.com/bhekumuzithabethe/django-banking-app/blob/main/static/img/client_home.png)
+![Home Page](https://github.com/bhekumuzithabethe/django-banking-app/blob/main/static/img/transactions.png)
 
 The project is built using  Django 5, HTML 5, CSS 3, and Bootstrap 5 with a Bootswatch Cosmo theme.
 ![Home Page]()
