@@ -10,7 +10,7 @@ User's or clients can view their account transactions,account balance and accoun
 ![Home Page](https://github.com/bhekumuzithabethe/django-banking-app/blob/main/static/img/transactions.png)
 
 The project is built using  Django 5, HTML 5, CSS 3, and Bootstrap 5 with a Bootswatch Cosmo theme.
-![Home Page]()
+![Home Page](https://github.com/bhekumuzithabethe/django-banking-app/blob/main/static/img/login.png)
 ## Prerequisites
 
 1. [Python 3.8-3.12](https://www.python.org/)
