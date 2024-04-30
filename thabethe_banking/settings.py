@@ -152,10 +152,3 @@ AUTH_USER_MODEL = 'core.User'
 
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR,'sent_mails')
-
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_USE_TLS = True 
-#EMAIL_PORT = 587
-#EMAIL_HOST_USER = 'bhekumuzithabethe2019@gmail.com'
-#EMAIL_HOST_PASSWORD = 'Thabethe1703'
-#DEFAULT_FROM_EMAIL = 'bhekumuzithabethe2019@gmail.com'
