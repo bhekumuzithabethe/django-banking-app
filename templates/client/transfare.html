@@ -1,0 +1,64 @@
+
+{% extends 'client/client.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block page_title %}Transfer{% endblock page_title %}
+
+{% block main_content %}
+
+{% block main_content_title %}<h4 class="m-3"><i class="fa-solid fa-money-bill-transfer fa-lg"></i> Transfer</h4>    <hr class="horizontal dark mt-0">
+{% endblock main_content_title %}
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+        <h4 class="alert alert-danger m-4">{{message}}</h4>
+    {% else %}
+        <h4 class="alert alert-success m-4">{{message}}</h4>
+    {% endif %}
+    {% endfor %}
+    <div class="row">
+        <div class="col-10">
+            <div class="card bg-light m-3">
+                <div class="card-header"><i class="fa-solid fa-money-bill-transfer fa-lg"></i> Transfer</div>
+                <hr >
+
+                <div class="card-body">
+                  <form action="{% url 'transfare' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="from_account" class="me-5">From account:</label>
+
+                    <select name="from_account" id="from_account">
+                        {% for account in accounts  %}
+                          {% if account.account_type != 'FIX' %}
+                          
+                            <option  class="ms-5" value="{{account.account_number}}">{{account.account_type}}: {{account.account_number}}</option>                        
+                          {% else %}
+
+                          {% endif %}
+                        {% endfor %}
+                     
+                    </select><br><br> 
+                    <label for="to_account" class="me-5">To account:</label>
+                    <select name="to_account" id="to_account">
+                      {% for account in accounts  %}
+                          <option  class="ms-5" value="{{account.account_number}}">{{account.account_type}}: {{account.account_number}}</option>                        
+                      {% endfor %}
+                   
+                  </select><br><br>
+
+
+                    <label for="reference" class="me-5">Reference:</label>
+                    <input type="text" name="reference" id="reference" class="ms-2" ><br><br>
+
+                    <label for="amount" class="me-5">Amount:</label>
+                    <input type="number" name="amount" id="amount" class="ms-2" ><br><br>
+                    
+                    <button type="submit" class="btn btn-dark"><i class="fa-solid fa-money-bill-transfer fa-lg"></i> Transfer</button>
+                    <a href="{% url 'client' %}" class="btn btn-dark"><i class="fa-solid fa-xmark fa-lg"></i> Cancel</a>
+                  </form>
+                </div>
+              </div>
+        </div>
+    </div>
+
+{% endblock main_content %}

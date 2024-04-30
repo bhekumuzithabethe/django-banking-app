@@ -1,0 +1,70 @@
+{% extends 'client/index.html' %}
+
+{% block page_title %}Client Home{% endblock page_title %}
+
+{% block title %}Client{% endblock title %}
+
+{% block page_url %}{% url 'client' %}{% endblock page_url %}
+
+{% block aside_body %}
+    {% include "client/sidebar.html" %}
+{% endblock aside_body %}
+
+{% block update_user_profile %}
+<a href="{% url 'update-profile' user.id %}" class="m-1 p-2">Welcome, {{user.username}}.</a>
+{% endblock update_user_profile %}
+
+
+{% block main_content %}
+
+{% block main_content_title %}
+    <h4><i class="fa-solid fa-house fa-lg"></i> Home</h4>    <hr class="horizontal dark mt-0">
+
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+        <h4 class="alert alert-danger m-4">{{message}}</h4>
+    {% else %}
+        <h4 class="alert alert-success m-4">{{message}}</h4>
+    {% endif %}
+  {% endfor %}
+{% endblock main_content_title %}
+
+<div class="row mt-4 text-dark">
+    {% for account in accounts  %}
+        <a href="{% url 'account' account.id %}" class="text-decoration-none">
+            <div class="col-lg-7 mb-lg-0 m-3">
+            <div class="card">
+                <div class="card-body p-3">
+                <div class="row">
+                    <div class="col-lg-6">
+                    <div class="d-flex flex-column h-100">
+                        <h5 class="font-weight-bolder">{{account.account_type}} Account</h5>
+                        <p class="text-dark">{{account.account_number}}</p>
+
+                    </div>
+                    </div>
+                    <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+                    <div class=" border-radius-lg h-100">
+                        <div class="position-relative  align-items-center justify-content-center h-100 ">
+
+                            <h4 class="card-title w-100 position-relative z-index-2 pt-4 m-0">R{{account.balance}}</h4>
+                            <p class="card-text w-100 position-relative z-index-2 pt-4 m-0 text-dark">Available balance</p>
+                        
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </a>
+            
+    {% endfor %}
+</div>
+      
+
+   
+{% endblock main_content %}
+      
+
+

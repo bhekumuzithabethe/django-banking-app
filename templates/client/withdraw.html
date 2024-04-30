@@ -1,0 +1,32 @@
+{% extends 'client/user_form.html' %}
+
+{% block page_title %}Withdraw{% endblock page_title %}
+
+
+
+{% block main_content_title %}<h4 class="m-3"><i class="fa-solid fa-money-bill-transfer fa-lg"></i> Withdrawals</h4>    <hr class="horizontal dark mt-0">
+{% endblock main_content_title %}
+
+{% block card_hearder %}<i class="fa-solid fa-money-bill-transfer fa-lg"></i> Withdraw{% endblock card_hearder %}
+
+
+
+{% block form_change %}
+    <label for="from_account" class="me-5"> Account:</label>
+
+    <select name="account" id="account">
+        {% for account in accounts  %}
+            {% if account.account_type != 'FIX' %}
+                            
+                <option  class="ms-5" value="{{account.account_number}}">{{account.account_type}}: {{account.account_number}}</option>                        
+            {% else %}
+
+            {% endif %}        
+        {% endfor %}
+    
+    </select><br><br> 
+{% endblock form_change %}
+{% block form_action %}{% url 'withdraw' %}{% endblock form_action %}
+
+{% block form_button %}<i class="fa-solid fa-money-bill-transfer fa-lg"></i> Withdraw{% endblock form_button %}
+{% block cancel_url %}{% url "client" %}{% endblock cancel_url %}

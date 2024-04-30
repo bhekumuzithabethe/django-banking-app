@@ -1,0 +1,139 @@
+{% extends 'consultant/consultant.html' %}
+
+{% block page_title %}Manage User's{% endblock page_title %}
+
+
+{% block main_content %}
+{% block main_content_title %}<h4 class="m-4"><i class="fa-solid fa-list-check fa-lg"></i> Manage User's</h4>  <hr class="horizontal dark mt-3">
+{% endblock main_content_title %}
+{% for message in messages %}
+{% if message.tags == 'error' %}
+    <h4 class="alert alert-danger m-4">{{message}}</h4>
+{% else %}
+    <h4 class="alert alert-success m-4">{{message}}</h4>
+{% endif %}
+{% endfor %}
+    {% if users %}
+        <div class="row">
+            <div class="col-12">
+
+              <div class="card text-dark bg-light m-3">
+                <div class="card-header"><i class="fa-solid fa-address-card fa-lg"></i> User Records</div>
+                <div class="card-body">
+                  <div class="table-responsive box-shadow">
+                    <table class="table table-hover text-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>                            
+                            <th scope="col">Password</th>
+                            <th scope="col">User Type</th>
+                            <th scope="col">Last Login</th>
+                            <th scope="col">Date Joined</th>
+                            <th scope="col">Date Created</th>
+                            <th scope="col">Date Modified</th>
+                            <th scope="col">Actions</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for user in users %}
+                            <tr>
+                                <td>{{user.id}}</td>
+                                <td><a href="{% url 'update-user' user.id %}" class="text-decoration-none text-info">{{user.username}}</a></td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.password}}</td>
+                                <td>{{user.user_type}}</td>
+                                <td>{{user.last_login}}</td>
+                                <td>{{user.date_joined}}</td>
+                                <td>{{user.date_created}}</td>
+                                <td>{{user.date_modified}}</td>
+
+                                <td>
+                                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#view{{user.id}}"><i class="fa-solid fa-circle-info fa-lg"></i></button>
+                                    <a href="{% url 'update-user' user.id %}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete{{user.id}}"><i class="fa-solid fa-trash fa-lg"></i></button>
+
+                                    <!--View Modal-->
+                                    <div class="modal" id="view{{user.id}}" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title">User: {{user.first_name}} {{user.last_name}}</h5>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true"></span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <ul class="list-unstyled">
+                                                <li>User Id:<strong>{{user.id}}</strong></li>
+                                                <li>First Name:<strong>{{user.first_name}}</strong></li>
+                                                <li>Last Name:<strong>{{user.last_name}}</strong></li>
+                                                <li>Username:<strong>{{user.username}}</strong></li>
+                                                <li>Email:<strong>{{user.email}}</strong></li>
+                                                <li>User Type:<strong>{{user.user_type}}</strong></li>
+                                                <li>Date Joined:<strong>{{user.date_joined}}</strong></li>
+                                                <li>Last Login:<strong>{{user.last_login}}</strong></li>
+                                                <li>Date Created:<strong>{{user.date_created}}</strong></li>
+                                                <li>Date Modified:<strong>{{user.date_modified}}</strong></li>
+
+                                            </ul>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <!--View Modal-->
+
+
+                                    <!--Delete Modal-->
+                                    <div class="modal" id="delete{{user.id}}" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title">Delete {{user.first_name}} {{user.last_name}}??</h5>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true"></span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>Are you sure you want to delete this user?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <form action="{% url 'delete-user' user.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-secondary">Delete</button>
+                                              </form>
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <!--Delete Modal-->
+                                </td>
+
+                            </tr>
+                          {% endfor %}
+                          
+                        </tbody>
+                      </table>
+                </div>
+                </div>
+              </div>
+
+
+                
+            </div>
+        </div>
+    
+    {% else %}
+        <h4 class="alert alert-info m-4">No User Records yet!!!</h4>
+    {% endif %}
+
+
+
+
+{% endblock main_content %}

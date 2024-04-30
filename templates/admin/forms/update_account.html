@@ -1,0 +1,10 @@
+{% extends 'admin/forms/form.html' %}
+
+{% block main_content_title %}<h4 class="m-4"><i class="fa-solid fa-list-check fa-lg"></i> Update Account Details</h4><hr>{% endblock main_content_title %}
+
+{% block card_hearder %}Update Account Details{% endblock card_hearder %}
+
+{% block form_action %}{% url 'admin-update-account' account.id %}{% endblock form_action %}
+
+{% block form_button %}Update{% endblock form_button %}
+{% block cancel_url %}{% url "admin-manage-accounts" %}{% endblock cancel_url %}

@@ -1,0 +1,128 @@
+{% extends 'consultant/consultant.html' %}
+
+{% block page_title %}Manage Client Cards{% endblock page_title %} 
+
+{% block main_content %}
+{% block main_content_title %}<h4 class="m-4"><i class="fa-solid fa-list-check fa-lg"></i> Manage Client Card's</h4>  <hr class="horizontal dark mt-3">
+{% endblock main_content_title %}
+{% for message in messages %}
+{% if message.tags == 'error' %}
+    <h4 class="alert alert-danger m-4">{{message}}</h4>
+{% else %}
+    <h4 class="alert alert-success m-4">{{message}}</h4>
+{% endif %}
+{% endfor %}
+    {% if cards %}
+        <div class="row">
+            <div class="col-12">
+                <div class="card text-dark bg-light m-3">
+                    <div class="card-header"><i class="fa-solid fa-address-card fa-lg"></i> Card Records</div>
+                    <div class="card-body">
+                        <div class="table-responsive shadow">
+                            <table class="table table-hover text-dark">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Card Holder</th>
+                                    <th scope="col">Card Number</th>
+                                    <th scope="col">Card Type</th>
+                                    <th scope="col">CVV</th>
+                                    <th scope="col">Date Created</th>
+                                    <th scope="col">Date Modified</th>
+                                    <th scope="col">Actions</th>
+                        
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for card in cards %}
+                                    <tr>
+                                        <td>{{card.id}}</td>
+                                        <td><a href="{% url 'update-card' card.id %}" class="text-decoration-none text-info">{{card.account.account_holder.title}} {{card.account.account_holder.last_name}}</a></td>
+                                        <td>{{card.card_number}}</td>
+                                        <td>{{card.card_type}}</td>
+                                        <td>{{card.card_code_verification}}</td>
+                                        <td>{{card.date_created}}</td>
+                                        <td>{{card.date_modified}}</td>
+                                       <td>
+                                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#view{{card.id}}"><i class="fa-solid fa-circle-info fa-lg"></i></button>
+                                            <a href="{% url 'update-card' card.id %}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete{{card.id}}"><i class="fa-solid fa-trash fa-lg"></i></button>
+                        
+                                            <!--View Modal-->
+                                            <div class="modal" id="view{{card.id}}" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <h5 class="modal-title">Card Holder:{{card.account.account_holder.title}} {{card.account.account_holder.user.last_name}}</h5>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true"></span>
+                                                      </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                      <ul class="list-unstyled">
+                                                        <li>Card Id:<strong>{{card.id}}</strong></li>
+                                                        <li>Card Holder:<strong>{{card.account.account_holder.title}} {{card.account.account_holder.user.last_name}}</strong></li>
+                                                        <li>Card Number:<strong>{{card.card_number}}</strong></li>
+                                                        <li>Card Type:<strong>{{card.card_type}}</strong></li>
+                                                        <li>Date Created:<strong>{{card.date_created}}</strong></li>
+                                                        <li>Date Modified:<strong>{{card.date_modified}}</strong></li>
+
+                                                    </ul>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            <!--View Modal-->
+                        
+                        
+                                            <!--Delete Modal-->
+                                            <div class="modal" id="delete{{card.id}}" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <h5 class="modal-title">Delete {{card.account.account_holder.title}} {{card.account.account_holder.user.last_name}}'s card??</h5>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true"></span>
+                                                      </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                      <p>Are you sure you want to delete this card?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <form action="{% url 'delete-card' card.id %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-secondary">Delete</button>
+                                                      </form>
+                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            <!--Delete Modal-->
+                                        </td>
+                        
+                                    </tr>
+                                  {% endfor %}
+                                  
+                                </tbody>
+                              </table>
+                        </div>
+                          
+                    </div>
+                  </div>
+                
+                
+            </div>
+        </div>
+    
+    {% else %}
+        <h4 class="alert alert-info m-4">No Card Records yet!!!</h4>
+    {% endif %}
+
+
+
+
+{% endblock main_content %}

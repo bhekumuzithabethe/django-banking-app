@@ -1,0 +1,10 @@
+{% extends 'client/user_form.html' %}
+
+{% block main_content_title %}<i class="fa-solid fa-plus fa-lg"></i> Add Beneficiary{% endblock main_content_title %}
+
+{% block card_hearder %}Add Beneficiary{% endblock card_hearder %}
+
+{% block form_action %}{% url 'add-beneficiary' %}{% endblock form_action %}
+
+{% block form_button %}Add{% endblock form_button %}
+{% block cancel_url %}{% url "client" %}{% endblock cancel_url %}

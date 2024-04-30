@@ -1,0 +1,18 @@
+{% extends 'client/user_form.html' %}
+
+{% block page_title %}Deposit{% endblock page_title %}
+<hr class="horizontal dark mt-0">
+{% block main_content_title %}<h4 class="m-3"><i class="fa-solid fa-file-arrow-down fa-lg"></i> Deposit</h4><hr class="horizontal dark mt-0">    
+{% endblock main_content_title %}
+
+{% block form_title %}<i class="fa-solid fa-file-arrow-down fa-lg"></i> Deposit{% endblock form_title %}
+
+{% block card_hearder %}<i class="fa-solid fa-file-arrow-down fa-lg"></i> Deposit{% endblock card_hearder %}
+
+{% block form_action %}{% url 'deposit' %}{% endblock form_action %}
+
+{% block form_button %}<i class="fa-solid fa-file-arrow-down fa-lg"></i> Deposit{% endblock form_button %}
+{% block cancel_url %}{% url "client" %}{% endblock cancel_url %}
+
+
+

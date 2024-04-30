@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Login{% endblock page_title %}
+
+{% block body %}
+
+<div class="row justify-content-center m-5">
+    <div class="col-6">
+        <h1 class="text-center text-dark">Sign In - <span class="text-muted">Thabethe Banking</span> </h1>
+        <div class="card border-primary m-3">
+            <div class="card-header text-center"><i class="fa-solid fa-right-to-bracket fa-lg"></i> Sign In <label for="theme-switch" class="nav-link text-body p-0 m-3">
+                <i class="fa fa-sun fixed-plugin-button-nav cursor-pointer" id="theme-indicator"></i> 
+              </label>
+              <input type="checkbox" class="d-none" id="theme-switch"/>
+              </div>
+            <div class="card-body">
+                <form action="{% url 'dologin' %}" method="POST">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-lg btn-dark" type="submit"><i class="fa-solid fa-right-to-bracket fa-lg"></i> Sign In </button>
+                    </div>
+                    <div class="text-dark m-4 text-center">
+                        <a href="{% url 'password_reset' %}" class="text-info">Fogort Password?</a><br>
+                        Don't have account? Register <a href="{% url 'authenticate-bank-account' %}" class="text-info">Here</a>
+                    </div>
+                </form>
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <h4 class="alert alert-danger m-4">{{message}}</h4>
+                    {% else %}
+                        <h4 class="alert alert-success m-4">{{message}}</h4>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock body %}

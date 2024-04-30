@@ -1,0 +1,77 @@
+{% extends 'client/client.html' %}
+
+{% block page_title %}Transactions{% endblock page_title %}
+
+{% block main_content %}
+
+{% block main_content_title %}<h4 class="m-3"><i class="fa-solid fa-address-card fa-lg"></i> Transaction's</h4>    <hr class="horizontal dark mt-0">
+{% endblock main_content_title %}
+
+    {% if transactions %}
+        <div class="row">
+            <div class="col-11">
+                <div class="card text-dark bg-light">
+                    <div class="card-header"><i class="fa-solid fa-address-card fa-lg"></i> All Transaction's </div>
+                    <div class="card-body">
+                        <div class="table-responsive shadow">
+                            <table class="table table-hover  border-box text-dark">
+                                <thead>
+                                    <tr >
+                                    <th scope="col">Transaction Type</th>
+                                    <th scope="col">Amount</th>                                            
+                                    <th scope="col">Transaction Date</th>        
+                                    </tr>
+                                </thead>
+    
+                                <tbody>
+                                     {% for transaction in transactions %}
+                                        {% if transaction.transaction_type == 'Transfer' %}
+                                            <tr>
+                                                <td>Transfer</td>
+                                                <td>-R{{transaction.amount}}</td>
+                                                <td>{{transaction.transaction_date}}</td>
+                                            </tr>
+                                        {% elif transaction.transaction_type == 'Pay' %}
+                                            <tr>
+                                                <td>Pay</td>
+                                                <td>-R{{transaction.amount}}</td>
+                                                <td>{{transaction.transaction_date}}</td>
+                                            </tr>
+                                        {% elif transaction.transaction_type == 'Deposit' %}
+                                            <tr class="table-success">
+                                                <td>Deposit</td>
+                                                <td>+R{{transaction.amount}}</td>
+                                                <td>{{transaction.transaction_date}}</td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td>Withdrawal</td>
+                                                <td>-R{{transaction.amount}}</td>
+                                                <td>{{transaction.transaction_date}}</td>
+                                            </tr>
+                                        {% endif %}
+                                     
+                                     
+                                     {% endfor %}      
+                                </tbody>
+                            </table>
+                            <div class="d-grid gap-2">
+                                <a href="{% url "client" %}" class="btn btn-lg btn-dark"><i class="fa-solid fa-backward fa-lg"></i> Back</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                  </div>
+
+                
+            </div>
+        </div>
+    
+    {% else %}
+        <h4 class="alert alert-info m-4">No Transaction's yet!!!</h4>
+    {% endif %}
+
+
+
+
+{% endblock main_content %}

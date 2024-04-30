@@ -1,0 +1,36 @@
+{% extends 'client/client.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block main_content %}
+
+{% block main_content_title %}
+    {% block title %}{% endblock title %}
+{% endblock main_content_title %}
+
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-light m-3">
+                <div class="card-header">{% block card_hearder %}{% endblock card_hearder %}</div>
+                <div class="card-body">
+                  <form action="{% block form_action %}{% endblock form_action %}" method="POST">
+                    {% csrf_token %}
+                    {% block form_change %}{% endblock form_change %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-dark">{% block form_button %}{% endblock form_button %}</button>
+                    <a href="{% url 'client' %}" class="btn btn-dark"><i class="fa-solid fa-xmark fa-lg"></i> Cancel</a>
+                  </form>
+                    {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <h4 class="alert alert-danger m-4">{{message}}</h4>
+                    {% else %}
+                        <h4 class="alert alert-success m-4">{{message}}</h4>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+              </div>
+        </div>
+    </div>
+
+{% endblock main_content %}
