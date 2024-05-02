@@ -15,8 +15,6 @@ The project is built using  Django 5, HTML 5, CSS 3, and Bootstrap 5 with a Boot
 
 1. [Python 3.8-3.12](https://www.python.org/)
 This project uses Django v4.2.4. For Django to work, you must have a correct Python version installed on your machine. More information [Here](https://django.readthedocs.io/en/stable/faq/install.html)
-1. [Visual Studio Code](https://code.visualstudio.com/)
-
 <br>
 
 >If you are using Windows kindly open your command prompt/powershell and type the commands listed bellow. You can do this by going to you search bar on windows and type command prompt/powershell. If you are using MacOS or linux just use the terminal.
