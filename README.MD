@@ -1,7 +1,7 @@
 # Thabethe Banking
 
 ## Overview
-Thabethe banking is a banking project, whereby a consultant can create a clients,bank accounts, and client banking cards. 
+Thabethe banking is a banking project, whereby a consultant can create clients,bank accounts, and client banking cards. 
 ![Home Page](https://github.com/bhekumuzithabethe/django-banking-app/blob/main/static/img/consultant_home.png)
 Consultants can only be registerd or created by the bank manager, and the bank manager is able to do everything the bank consultant can do.
 ![Home Page](https://github.com/bhekumuzithabethe/django-banking-app/blob/main/static/img/bank_manager_home.png)
