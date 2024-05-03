@@ -23,30 +23,26 @@ This project uses Django v4.2.4. For Django to work, you must have a correct Pyt
 
 * Create a virtual environment.<br>
 From the root directory, run:
->On Linux:
-```
-virtualenv venv
-```
+
 >On Windows:
 
 # In Command prompt
 ```
+python -m venv venv
+
+* Activate the virtual environment.<br>
+# In Command Prompt
 venv\Scripts\activate.bat
 ```
 # In PowerShell
 ```
 venv\Scripts\Activate.ps1
 ```
-* Activate the virtual environment.<br>
-From the root directory, run: 
->On Linux/ MacOS:
-```
-source venv/bin/activate
-```
 
->On Windows:
+>On Linux:
 ```
-cd venv\Scripts\activate.bat
+virtualenv venv
+source venv\bin\acivate
 ```
 
 * Install required dependencies.<br>
