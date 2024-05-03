@@ -13,8 +13,8 @@ The project is built using  Django 5, HTML 5, CSS 3, and Bootstrap 5 with a Boot
 ![Home Page](https://github.com/bhekumuzithabethe/django-banking-app/blob/main/static/img/Home.png)
 ## Prerequisites
 
-1. [Python 3.8-3.12](https://www.python.org/)
-This project uses Django v5.0. For Django to work, you must install python and please make sure you have installed the correct Python version on your PC or Laptop, you can't install python on a mobile device unfortunately. More information [Here](https://django.readthedocs.io/en/stable/faq/install.html)
+1. [Python](https://www.python.org/)
+This project uses Django v5.0. For Django to run on your Laptop or PC , you must install python on your Laptop or PC , you can't install python on a mobile device unfortunately. More information [Here](https://django.readthedocs.io/en/stable/faq/install.html)
 <br>
 
 >If you are using Windows kindly open your command prompt/powershell and type the commands listed bellow. You can do this by going to you search bar on windows and type command prompt/powershell. If you are using MacOS or linux just use the terminal.
