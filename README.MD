@@ -70,8 +70,8 @@ python manage.py runserver
 Go to http://127.0.0.1:8000/. <br>
 Once running use the following details to login as the bank manager
 >username: admin<br>password:1234
-You can create a client, then a bank account on the bank manager's portal. Once you are a client you can register your user account on the login page, but you firstly need to make sure you are a client , even if you don't have an account bt atleast be our client because you will have to authenticate your identity number,first name, last name and your email address. If you are not a client you won't be able to the authenticated to create your user account. Once authenticated you'll be promted to enter you first and last name once again, your username,email and password to create your user account. <br>
-As the bank manager you can create a bank consultant, this is optional as the bank manager can do all the functions done bt a consultant.
+You can create a client, then a bank account on the bank manager's portal. Once you are a client you can register your user account on the login page, but you firstly need to make sure you are a client , even if you don't have an account but atleast be our client because you will have to authenticate your identity number,first name, last name and your email address. If you are not a client you won't be able to be authenticated to create your user account. Once authenticated you'll be promted to enter you first and last name once again, your username,email and password to create your user account. <br>
+As the bank manager you can create a bank consultant, this is optional as the bank manager can do all the functions done by a consultant.
 
 <br><br>
 If it happens for some reason you cannot see the styling of the web page or it is not showing as a beautiful web application or website, don not be surprised it might be your browser failing to read the static files or the CSS, JavaScript and image files and to fix this error simpli type this command on your terminal or command prompt
